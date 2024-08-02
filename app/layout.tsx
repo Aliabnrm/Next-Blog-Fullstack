@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/component/navbar/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const vazir = Vazirmatn({ subsets: ["arabic"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fa-Ir" dir="rtl">
+      <body className={vazir.className}>
+        <Navbar />
+        <div className="flex min-h-dvh flex-col justify-between">
+          {children}
+          </div>
+      </body>
     </html>
   );
 }

@@ -19,38 +19,39 @@ const routes = [
         path: '/blog',
 }]
 
+
 const NavbarRoutes = ({ session, vertical = false }: NavbarRoutesProps) => {
-
     const pathname = usePathname();
-
+  
     return (
-         <div className={cn('flex items-center justify-start gap-2' ,
-        { 'flex-col': vertical,
-})}>
-    {routes.map(({label, path}) => (
-        <Link
-         href={path}
-         key={label} 
-         className={cn(
-            'flex w-14 items-center justify-center py-1 text-lg', {
-            'rounded-md bg-black text-white': pathname === path,
+      <div
+        className={cn('flex items-center justify-start gap-2', {
+          'flex-col': vertical,
         })}
-        >
+      >
+        {routes.map(({ label, path }) => (
+          <Link
+            href={path}
+            key={label}
+            className={cn('flex w-14 items-center justify-center py-1 text-lg', {
+              'rounded-md bg-black text-white': pathname === path,
+            })}
+          >
             {label}
-        </Link>
-    ))}
-    {session?.user.userRole === 'ADMIN' && (
-            <Link
+          </Link>
+        ))}
+        {session?.user.userRole === 'ADMIN' && (
+          <Link
             href='/admin'
-           className={cn('flex w-14 items-center justify-center py-1 text-lg bg-black', {
-            'rounded-md bg-black text-white': pathname === '/admin',
-        })}
-        >
-           ngruhgjrghhggjgjgirpeot ادمین
-            </Link>
+            className={cn('flex w-14 items-center justify-center py-1 text-lg', {
+              'rounded-md bg-black text-white': pathname === '/admin',
+            })}
+          >
+            ادمین
+          </Link>
         )}
-</div>
+      </div>
     );
-}
- 
+  };
+  
 export default  NavbarRoutes;

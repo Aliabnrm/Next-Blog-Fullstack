@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/navbar/navbar";
+import Footer from "@/component/footer/footer";
 
 const vazir = Vazirmatn({ subsets: ["arabic"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar />
         <div className="flex min-h-dvh flex-col justify-between">
           {children}
+          <Footer />
           </div>
       </body>
     </html>
